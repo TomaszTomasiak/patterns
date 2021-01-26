@@ -1,6 +1,7 @@
 package com.patterns.singleton;
 
 import org.junit.AfterClass;
+import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -30,4 +31,23 @@ public class SettingsTestSuite {
         //Then
        assertEquals("myApp.settings", fileName);
     }
+
+    @Test
+    public void testLoadSettings() {
+        //Given
+        //When
+        boolean result = settings.loadSettings();
+        //Then
+        assertTrue(result);
+    }
+
+    @Test
+    public void testSaveSettings() {
+        //Given
+        //When
+        boolean result = settings.saveSettings();
+        //Then
+        assertTrue(result);
+    }
+
 }
