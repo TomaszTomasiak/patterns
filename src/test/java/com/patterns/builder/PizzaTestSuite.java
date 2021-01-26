@@ -11,9 +11,10 @@ public class PizzaTestSuite {
         //Given
         Pizza pizza = new Pizza.PizzaBuilder()
                 .ingredient("Onion")
-                .bottom("Thin")
-                .sauce("Spicy")
                 .ingredient("Ham")
+                .sauce("Spicy")
+                .ingredient("Olives")
+                .bottom("Thin")
                 .ingredient("Mushrooms")
                 .build();
         System.out.println(pizza);
@@ -21,7 +22,10 @@ public class PizzaTestSuite {
         //When
         int howManyIngredients = pizza.getIngredients().size();
 
+
         //Then
-        Assert.assertEquals(3, howManyIngredients);
+        Assert.assertEquals(4, howManyIngredients);
+
+
     }
 }
