@@ -3,10 +3,24 @@ package com.patterns.singleton;
 
 public final class Settings {
 
+    private static Settings settingsInstance = null;
+
     private String fileName = "";
 
-    public Settings() {
+    private Settings() {
+    }
 
+    public static Settings getInstance() {
+
+
+        if(settingsInstance == null) {
+            synchronized (Settings.class) {
+                if (settingsInstance == null) {
+                    settingsInstance = new Settings();
+                }
+            }
+        }
+        return settingsInstance;
     }
 
     public String getFileName() {
