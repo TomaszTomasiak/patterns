@@ -1,8 +1,7 @@
 package com.patterns.prototype;
 
-import org.junit.Assert;
+import static org.junit.Assert.*;
 import org.junit.Test;
-
 import java.util.stream.IntStream;
 
 public class BoardTestSuite {
@@ -37,6 +36,7 @@ public class BoardTestSuite {
         board.getLists().add(listInProgress);
         board.getLists().add(listDone);
 
+        //making a shallow copy of object board
         Board clonedBoard = null;
 
         try {
@@ -46,12 +46,28 @@ public class BoardTestSuite {
             System.out.println(e);
         }
 
-        System.out.println(board);
-        System.out.println(clonedBoard);
+        //making a deep copy of object board
+
+        Board deepClonedBoard = null;
+
+        try {
+            deepClonedBoard = board.deepCopy();
+            deepClonedBoard.setName("Project number 3");
+        } catch (CloneNotSupportedException e) {
+            System.out.println(e);
+        }
 
     //When
+        board.getLists().remove(listToDo);
+
     //Then
-        Assert.assertEquals(3, board.getLists().size());
-        Assert.assertEquals(3, clonedBoard.getLists().size());
+        System.out.println(board);
+        System.out.println(clonedBoard);
+        System.out.println(deepClonedBoard);
+        assertEquals(2, board.getLists().size());
+        assertEquals(2, clonedBoard.getLists().size());
+        assertEquals(3, deepClonedBoard.getLists().size());
+        assertEquals(clonedBoard.getLists(), board.getLists());
+        assertNotSame(deepClonedBoard.getLists(), board.getLists());
     }
 }
