@@ -2,6 +2,7 @@ package com.patterns.decorator;
 
 import java.math.BigDecimal;
 
+//delegat
 public class BasicTaxiOrder implements TaxiOrder{
 
     @Override
