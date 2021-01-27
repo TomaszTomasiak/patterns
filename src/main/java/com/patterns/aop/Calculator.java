@@ -6,6 +6,7 @@ import org.springframework.stereotype.Component;
 import java.math.BigDecimal;
 
 @Component
+@EnableAspectJAutoProxy
 public class Calculator {
     public double add(double x, double y) {
         return x + y;
