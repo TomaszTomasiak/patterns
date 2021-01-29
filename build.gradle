@@ -21,8 +21,6 @@ repositories {
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter'
     compile ('org.springframework.boot:spring-boot-starter-aop')
-    compileOnly 'org.projectlombok:lombok'
-    annotationProcessor 'org.projectlombok:lombok'
     testCompile('org.springframework.boot:spring-boot-starter-test')
     implementation 'junit:junit:4.12'
 }
